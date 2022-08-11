@@ -1,8 +1,8 @@
 <?php
 
-$linkas1 ='Raudona';
+$linkas1 ='Raudona :)';
 
-$linkas2 = 'Juoda';
+$linkas2 = 'Juoda :)';
 
 
 
