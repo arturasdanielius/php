@@ -1,10 +1,10 @@
 <?php
 
-echo '<pre>';
+// echo '<pre>';
 
-print_r($_POST);
+// print_r($_POST);
 
-die;
+// die;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $checked = count($_POST['c'] ?? []);
