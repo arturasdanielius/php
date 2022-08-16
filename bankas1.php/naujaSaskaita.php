@@ -1,4 +1,34 @@
+<?php
 
+//jei nera - sukuriamas data.json failas
+if (!file_exists(__DIR__ . '/data.json')) {
+    file_put_contents(__DIR__ . '/data.json', json_encode([]));
+}
+
+if('POST' == $_SERVER['REQUEST_METHOD']) {
+    $naujasVartotojas = $_POST ?? 'Klaida, iveskite varda';
+
+    $data = json_decode(file_get_contents(__DIR__ . '/data.json'), 1);
+
+    $data[] = $naujasVartotojas;
+
+    file_put_contents(__DIR__ . '/data.json', json_encode($data));
+
+    header("Location: http://localhost/php/bankas1.php/naujaSaskaita.php");
+    die;
+
+}
+
+//sugeneruojam LT saskaita su LT pradzioje ir 18 atsitiktiniu skaiciu 
+
+$saskaita = '';
+for($i=0; $i<18; $i++){
+    $saskaita .= rand(0,9); // $saskaita.rand(0,9);
+}
+
+$IBAN = 'LT'.$saskaita;
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,21 +42,24 @@
 <body >
     <!--1. Nauja sąskaita sukuriama su pradine 0 suma, o lėšos pridedamos/nuimamos pagalbiniuose puslapiuose.Naujos sąskaitos sukūrimas (įvedami duomenys: vardas, pavardė, sąskaitos numeris, asmens kodas)-->
     <div class="info-block">
-        <h1>Create a new bank account</h1>
-        <div>
-            <form action="" class="container">
-            <h2>Fill form</h3>
-            <label for="fname">First name</label>
-            <input type="text" id="fname" name="name" placeholder="Yours name" require>
-            <label for="lname">Last Name</label>
-            <input type="text" id="lname" name="surname" placeholder="Yours surname"/>
-            <label for="pnr">Personal number</label>
-            <input type="number" id="pnr"name="personal nr" placeholder="Personal number"/>
-            <label for="raccount">Random generates account number</label>
-            <input type="text" id="raccount" name="bank account number" placeholder="random automaticly"/>
-            <button type="submit">Sukurti sąskaitą</button>
+        <h1>Sukurti naują sąskaitą</h1>
+        <fieldset>
+            <?php
+            print_r($_POST);
+            ?>
+            <form action="http://localhost/php/bankas1.php/naujaSaskaita.php" class="container" method="post">
+            <h2>Suvesti duomenis</h3>
+            <label for="fname">Vardas</label>
+            <input type="text" id="fname" name="vardas" value="" placeholder="Vardas" require>
+            <label for="lname">Pavardė</label>
+            <input type="text" id="lname" name="pavarde" value="" placeholder="Pavardė"/>
+            <label for="ak">Asmens kodas</label>
+            <input type="number" id="ak"name="asmensKodas" value="" placeholder="Asmens kodas"/>
+            <input type="text" name="iban" value="<?= $IBAN;?>" placeholder="IBAN" hidden/>
+            <input type="text" name="lesosPradzioje" value="" placeholder="LesosPradzioje" hidden/>
+            <button type="submit">Create</button>
             </form>
-        </div>
+        </fieldset>
     </div>
     
 </body>
