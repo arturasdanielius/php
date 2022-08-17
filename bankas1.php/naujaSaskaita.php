@@ -56,7 +56,7 @@ $IBAN = 'LT'.$saskaita;
             <label for="ak">Asmens kodas</label>
             <input type="number" id="ak"name="asmensKodas" value="" placeholder="Asmens kodas"/>
             <input type="text" name="iban" value="<?= $IBAN;?>" placeholder="IBAN" hidden/>
-            <input type="text" name="lesosPradzioje" value="" placeholder="LesosPradzioje" hidden/>
+            <input type="text" name="pinigai" value="0" placeholder="pinigai" hidden/>
             <button type="submit">Create</button>
             </form>
         </fieldset>
