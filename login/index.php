@@ -83,7 +83,7 @@ function doLogin()
 function doLogout()
 {
     unset($_SESSION['login'], $_SESSION['user']);
-    makeMsg('green', 'Viso gero');
+    makeMsg('green', 'Atia');
     redirect('login');
 }
 
