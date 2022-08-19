@@ -36,19 +36,19 @@ $IBAN = 'LT'.$saskaita;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bank1.css">
+    <link rel="stylesheet" href="style.css">
     <title>New Account</title>
 </head>
-<body >
+<body>
     <!--1. Nauja sąskaita sukuriama su pradine 0 suma, o lėšos pridedamos/nuimamos pagalbiniuose puslapiuose.Naujos sąskaitos sukūrimas (įvedami duomenys: vardas, pavardė, sąskaitos numeris, asmens kodas)-->
-    <div class="info-block">
+    <div class="info-new">
         <h1>Sukurti naują sąskaitą</h1>
         <fieldset>
             <?php
             print_r($_POST);
             ?>
-            <form action="http://localhost/php/bankas1.php/naujaSaskaita.php" class="container" method="post">
-            <h2>Suvesti duomenis</h3>
+            <form class="info-new" action="http://localhost/php/bankas1.php/naujaSaskaita.php" method="post">
+            <h2>Įveskite informaciją</h3>
             <label for="fname">Vardas</label>
             <input type="text" id="fname" name="vardas" value="" placeholder="Vardas" require>
             <label for="lname">Pavardė</label>
@@ -57,7 +57,7 @@ $IBAN = 'LT'.$saskaita;
             <input type="number" id="ak"name="asmensKodas" value="" placeholder="Asmens kodas"/>
             <input type="text" name="iban" value="<?= $IBAN;?>" placeholder="IBAN" hidden/>
             <input type="text" name="pinigai" value="0" placeholder="pinigai" hidden/>
-            <button type="submit">Create</button>
+            <button type="submit">Sukurti</button>
             </form>
         </fieldset>
     </div>
