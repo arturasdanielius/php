@@ -10,6 +10,7 @@ if(isset($_GET)){
         if($i == $index){
             if($a['pinigai'] == 0){
             unset($data[$i]);
+            // $data = array_values($data) kad datoj jsone atsirastu naujas masyvas;
             file_put_contents(__DIR__ . '/data.json', json_encode($data));            
             $istrinta = $a['vardas'] . "\r" . $a['pavarde'] ."\r" . 'Vartotojas istrintas';
             print_r($istrinta);
