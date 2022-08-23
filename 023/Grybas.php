@@ -11,6 +11,8 @@ class Grybas {
 
     }
 
+
+    //__get($ka) paduoda is uz matomumo ribos(private $valgomas, $sukirmijes ar $svoris reiksmes, svarbu indekse nurodyti kokia reiksme imti pvs: $grybas->valgomas($grybas - yra is klaseje krepsys). )
     public function __get($ka)
     {
         return $this->$ka;
