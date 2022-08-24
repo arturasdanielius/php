@@ -4,6 +4,8 @@ class Tv {
     public $color;
     private $size;
 
+
+    //$s = '42"' - size'o defaultine reiksme 42" coliai. 
     public function __construct($c, $s = '42"')
     {
         $this->color = $c;
