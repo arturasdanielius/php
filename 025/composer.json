@@ -1,0 +1,15 @@
+{
+    "name": "arturas/025",
+    "autoload": {
+        "psr-4": {
+            "": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Artūras Danielius",
+            "email": "arturas.danielius@gmail.com"
+        }
+    ],
+    "require": {}
+}
