@@ -1,0 +1,16 @@
+{
+    "name": "arturas/026",
+    "description": "Nice and fancy zoo",
+    "autoload": {
+        "psr-4": {
+            "": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Artūras Danielius",
+            "email": "arturas.danielius@gmail.com"
+        }
+    ],
+    "require": {}
+}
