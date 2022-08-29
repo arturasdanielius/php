@@ -2,10 +2,13 @@
 
 namespace App\Controllers;
 
+use App\App;
+
 class HomeController{
 
     public function home()
     {
-        echo 'HOME';
+        $title ='HOME';
+        return App::view('home', ['title' => $title]);
     }
 }
