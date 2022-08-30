@@ -22,7 +22,17 @@ class AnimalController {
             'weight' => $_POST['weight'],
             'tail' => isset($_POST['tail']) ? 1 : 0 
         ]);
-        return App::redirect('');
+        return App::redirect('animals');
+    }
+
+
+    public function list()
+    {
+
+        return App::view('animal_list', [
+            'title' => 'Animals List',
+            'animals' => Json::connect()->showAll()
+        ]);
     }
     
 }
