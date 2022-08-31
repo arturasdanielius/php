@@ -10,10 +10,10 @@ App\App::view('top', ['title' => $title]);
                     <h2>Login</h2>
                 </div>
                 <div class="card-body">
-                    <form action="<?= URL ?>animals/store" method="post">
+                    <form action="<?= URL ?>login" method="post">
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" class="form-control" name="name"> 
+                            <input type="text" class="form-control" name="name">
                         </div>
                         <div class="form-group">
                             <label>Password</label>
@@ -26,7 +26,5 @@ App\App::view('top', ['title' => $title]);
         </div>
     </div>
 </div>
-
-
 <?php
 App\App::view('bottom');

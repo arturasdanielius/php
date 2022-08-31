@@ -8,16 +8,12 @@ use App\Controllers\LoginController as L;
 use App\Middlewares\Auth;
 
 class App {
-
-
+    
     static public function start()
     {
         session_start();
         self::router();
     }
-
-
-
     static public function router()
     {
                 
@@ -26,17 +22,13 @@ class App {
         $url = explode('/', $url);
         array_shift($url);
         $method = $_SERVER['REQUEST_METHOD'];
-
-        if(!Auth::authorize($url)){
+        if (!Auth::authorize($url)) {
             return self::redirect('login');
         }
-
         if ($method == 'GET' && count($url) == 1 && $url[0] == '') {
-
             return((new H)->home());
             
         }
-
         
         if ($method == 'GET' && count($url) == 2 && $url[0] == 'animals' && $url[1] == 'create') {
             return((new A)->create());
@@ -63,20 +55,20 @@ class App {
             return((new L)->doLogin());
         }
 
-
-
+        if ($method == 'POST' && count($url) == 1 && $url[0] == 'logout') {
+            return((new L)->logout());
+        }
 
     }
 
     static public function view($name, $data = [])
+
     {
         extract($data);
         require DIR . 'resources/view/' . $name . '.php';
     }
-
     static public function redirect($where)
     {
         header('Location: ' . URL . $where);
     }
-
 }
