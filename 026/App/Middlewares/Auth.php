@@ -1,11 +1,7 @@
 <?php
-
 namespace App\Middlewares;
-
 class Auth {
-
     static private $protect = ['animals'];
-
     static public function authorize(array $url) : bool
     {
         if (in_array($url[0], self::$protect)) {
@@ -13,5 +9,11 @@ class Auth {
         }
         return true;
     }
+
+    static public function isLoged() : bool
+    {
+        return (isset($_SESSION['login']) && $_SESSION['login'] == 1);
+    }
+
 
 }

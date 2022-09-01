@@ -10945,3 +10945,9 @@ h1 span, .h1 span {
   justify-content: flex-end;
   align-items: center;
 }
+
+.user-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
