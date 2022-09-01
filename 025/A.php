@@ -10,3 +10,4 @@ trait A {
         return 'A';
     }
 }
+

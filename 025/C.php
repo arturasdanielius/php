@@ -1,6 +1,7 @@
 <?php
 
-class C {
+final class C {
+
     public function read()
     {
         return 'C';
