@@ -1,14 +1,10 @@
 <?php
-
 namespace App;
-
 use App\Controllers\HomeController as H;
 use App\Controllers\AnimalController as A;
 use App\Controllers\LoginController as L;
 use App\Middlewares\Auth;
-
 class App {
-    
     static public function start()
     {
         session_start();
@@ -48,21 +44,22 @@ class App {
         if ($method == 'POST' && count($url) == 3 && $url[0] == 'animals' && $url[1] == 'delete') {
             return((new A)->delete((int) $url[2]));
         }
+
         if ($method == 'GET' && count($url) == 1 && $url[0] == 'login') {
+            if (Auth::isLoged()) {
+                return self::redirect('');
+            }
             return((new L)->login());
         }
+  
         if ($method == 'POST' && count($url) == 1 && $url[0] == 'login') {
             return((new L)->doLogin());
         }
-
         if ($method == 'POST' && count($url) == 1 && $url[0] == 'logout') {
             return((new L)->logout());
         }
-
     }
-
     static public function view($name, $data = [])
-
     {
         extract($data);
         require DIR . 'resources/view/' . $name . '.php';
