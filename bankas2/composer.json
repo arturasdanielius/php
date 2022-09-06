@@ -1,0 +1,16 @@
+{
+    "name": "arturas/bankas2",
+    "description": "Bank demo page",
+    "autoload": {
+        "psr-4": {
+            "": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Artūras Danielius",
+            "email": "arturas.danielius@gmail.com"
+        }
+    ],
+    "require": {}
+}

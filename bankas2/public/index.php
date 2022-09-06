@@ -1,3 +1,3 @@
 <?php
 
-echo 'Atejome';
+echo __DIR__;
