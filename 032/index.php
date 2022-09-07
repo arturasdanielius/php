@@ -15,17 +15,18 @@ $options = [
 
 $pdo = new PDO($dsn, $user, $pass, $options);
 
-// select column1, column2, ...
-// FROM table_name
+
+
+// SELECT column1, column2, ...
+// FROM table_name;
+
 
 $sql = "
-
     SELECT id, type, height, title
     FROM trees
     WHERE type <> 1
     ORDER BY type DESC, title
     LIMIT 2, 2
-
 ";
 
 $stmt = $pdo->query($sql);
@@ -33,16 +34,17 @@ $stmt = $pdo->query($sql);
 $data = $stmt->fetchAll();
 
 ?>
-
 <ul>
 
-<?php foreach($data as $t) :?>
-    
-<li>ID: <?= $t['id'] ?> 
-<?= ['Lapuotis', 'Spygliuotis', 'Palmė'][$t['type'] - 1] ?> 
-<?= $t['height'] ?>m
-<?= $t['title'] ?>
+<?php foreach($data as $t) : ?>
+
+<li>
+    ID: <?= $t['id'] ?>
+    <?= ['Lapuotis', 'Spygliuotis', 'Palmė'][$t['type'] - 1] ?>
+    <?= $t['height'] ?>m 
+    <?= $t['title'] ?>
 </li>
+
 
 <?php endforeach ?>
 
