@@ -25,7 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         VALUES (".$_POST['type'].", ".$_POST['height'].", '".$_POST['title']."')
     ";
 
-    header('Location: http://localhost/delfinai/032/');
+    $pdo->query($sql);
+
+    header('Location: http://localhost/php/032/');
     die;
 }
 
@@ -42,4 +44,4 @@ Height: <input type="text" name="height"> </br></br>
     <option value="3">Palmė</option>
 </select></br></br>
 <button type="submit">Plant It!</button>
-</form>
+</form> 

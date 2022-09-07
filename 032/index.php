@@ -15,6 +15,20 @@ $options = [
 
 $pdo = new PDO($dsn, $user, $pass, $options);
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    // DELETE FROM table_name WHERE condition;
+
+    $sql = "
+        DELETE FROM trees
+        WHERE id = " . $_POST['id'];
+
+        $pdo->query($sql);
+
+        header('Location: http://localhost/php/032/');
+        die;
+}
+
 
 
 // SELECT column1, column2, ...
@@ -24,9 +38,6 @@ $pdo = new PDO($dsn, $user, $pass, $options);
 $sql = "
     SELECT id, type, height, title
     FROM trees
-    WHERE type <> 1
-    ORDER BY type DESC, title
-    LIMIT 2, 2
 ";
 
 $stmt = $pdo->query($sql);
@@ -49,3 +60,8 @@ $data = $stmt->fetchAll();
 <?php endforeach ?>
 
 </ul>
+
+<form action="" method="post">
+    ID: <input type="text" name="id"></br></br>
+    <button type="submit">Cut</button>
+</form>
