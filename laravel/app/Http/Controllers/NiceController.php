@@ -6,8 +6,14 @@ use Illuminate\Http\Request;
 
 class NiceController extends Controller
 {
-    public function fun($kiek, $abc)
+    public function fun($kiek, $abc = 'Dramblys')
+    
     {
-        return $abc. 'FUN: '. $kiek;
+        $mas = ['Asilas', 'Karvius', 'Bulius', 'Kalakutas'];
+        return view('kitkas.fun',[
+            'abc' => $abc,
+            'mas' => $mas,
+            'kiek' => $kiek
+        ]);
     }
 }

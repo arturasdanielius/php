@@ -18,7 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/eziukas', fn() => '<h1>EZIUKAS</h1>');
-Route::get('/bebriukas/super', function() {return '<h1>NE EZIUKAS</h1>';});
 
-Route::get('/fun/{kiek}/{abc}', [Nice::class, 'fun']);
+Route::get('/eziukas', fn() => '<h1>EŽIUKAS</h1>'); 
+Route::get('/bebriukas/super', function() { return '<h1>NE EŽIUKAS</h1>';}); 
+
+
+Route::get('/fun/{kiek}/{abc?}', [Nice::class, 'fun']);
