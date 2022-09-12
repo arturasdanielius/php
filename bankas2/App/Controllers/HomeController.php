@@ -2,11 +2,13 @@
 
 namespace App\Controllers;
 
+use App\App;
+
 class HomeController {
 
     public function home()
     {
-        echo 'HOME';
+       return App::view('home'); 
     }
 
     
