@@ -18,8 +18,13 @@
                                 </div>
                                 <div class="buttons">
                                     <a href="{{route('show', $blog)}}" class="btn btn-info">Show</a>
-                                    <button type="button" class="btn btn-success">Edit</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
+                                   <a href="{{route('edit', $blog)}}" class="btn btn-success">Edit</a>
+                                    <form action="{{route('delete', $blog)}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                    
                                 </div>
                             </div>
                         </li>
