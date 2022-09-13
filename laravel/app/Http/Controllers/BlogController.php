@@ -15,7 +15,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $blogs = Blog::all();
+        return view('blog.index', ['blogs' => $blogs]);
     }
 
     /**
@@ -35,8 +36,13 @@ class BlogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+       
+        $blog = new Blog;
+        $blog->title = $request->title;
+        $blog->post = $request->post;
+        $blog->save();
+        return redirect()->back();
     }
 
     /**
@@ -47,7 +53,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        return view('blog.show', ['blog' => $blog]);
     }
 
     /**

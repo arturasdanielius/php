@@ -37,5 +37,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('blog')->group(function () {
     Route::get('/', [B::class, 'index'])->name('index');
     Route::get('/create', [B::class, 'create'])->name('create');
-    Route::post('/create', [B::class, 'store'])->name('store');   
+    Route::post('/create', [B::class, 'store'])->name('store');
+    Route::get('/show/{blog}', [B::class, 'show'])->name('show');
 });
