@@ -7,8 +7,9 @@ use App\App;
 class HomeController {
 
     public function home()
-    {
-       return App::view('home'); 
+    {   
+       $title = 'LTU Bankas';
+       return App::view('home', ['title' => $title]); 
     }
 
     
