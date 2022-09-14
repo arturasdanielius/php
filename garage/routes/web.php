@@ -32,6 +32,7 @@ Route::prefix('mechanic')->name('m_')->group(function () {
     Route::get('/edit/{mechanic}', [M::class, 'edit'])->name('edit');
     Route::put('/edit/{mechanic}', [M::class, 'update'])->name('update');
 });
+
 Route::prefix('truck')->name('t_')->group(function () {
     Route::get('/', [T::class, 'index'])->name('index');
     Route::get('/create', [T::class, 'create'])->name('create');

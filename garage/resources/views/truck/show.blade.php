@@ -9,8 +9,8 @@
                     <h2>Mechanic</h2>
                 </div>
                 <div class="card-body">
-                    <h5>{{$mechanic->title}}</h5>
-                    <p>{{$mechanic->post}}</p>
+                    <h5>{{$mechanic->name}}</h5>
+                    <h5>{{$mechanic->surname}}</h5>
                 </div>
             </div>
         </div>
