@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Mechanic;
 use Illuminate\Http\Request;
 
-
 class MechanicController extends Controller
 {
     /**
@@ -15,7 +14,11 @@ class MechanicController extends Controller
      */
     public function index()
     {
-        //
+        $mechanics = Mechanic::all();
+
+        return view('mechanics.index', [
+            'mechanics' => $mechanics
+        ]);
     }
 
     /**
@@ -31,17 +34,16 @@ class MechanicController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request;  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMechanicRequest $request)
+    public function store(Request $request)
     {
         $mechanic = new Mechanic;
         $mechanic->name = $request->name;
-        $mechanic->surnamename = $request->surname;
+        $mechanic->surname = $request->surname;
         $mechanic->save();
         return redirect()->route('m_index');
-
     }
 
     /**
@@ -52,8 +54,11 @@ class MechanicController extends Controller
      */
     public function show(Mechanic $mechanic)
     {
-        //
+        return view('mechanic.show', [
+            'mechanics' => $mechanic
+        ]);
     }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -69,11 +74,11 @@ class MechanicController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request;  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Mechanic  $mechanic
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMechanicRequest $request, Mechanic $mechanic)
+    public function update(Request $request, Mechanic $mechanic)
     {
         //
     }
