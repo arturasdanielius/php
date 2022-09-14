@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mechanic;
-use App\Http\Requests\StoreMechanicRequest;
-use App\Http\Requests\UpdateMechanicRequest;
+use Illuminate\Http\Request;
+
 
 class MechanicController extends Controller
 {
@@ -25,18 +25,23 @@ class MechanicController extends Controller
      */
     public function create()
     {
-        //
+        return view('mechanic.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreMechanicRequest  $request
+     * @param  \Illuminate\Http\Request;  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreMechanicRequest $request)
     {
-        //
+        $mechanic = new Mechanic;
+        $mechanic->name = $request->name;
+        $mechanic->surnamename = $request->surname;
+        $mechanic->save();
+        return redirect()->route('m_index');
+
     }
 
     /**
@@ -64,7 +69,7 @@ class MechanicController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateMechanicRequest  $request
+     * @param  \Illuminate\Http\Request;  $request
      * @param  \App\Models\Mechanic  $mechanic
      * @return \Illuminate\Http\Response
      */
