@@ -30,10 +30,7 @@ class App {
 
     static public function view($name, $data = [])
     {
-        
-        extract(['title' => 'home']);
-
-        var_dump($title);
+        extract($data);
         require DIR . 'resources/view/' . $name . '.php';
     }
    

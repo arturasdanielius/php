@@ -1,8 +1,8 @@
 <?php
 
-App\App::view('top');
+App\App::view('top', ['title' => $title]);
 
-echo 'Taip mes cia';
+// echo 'Taip mes cia';
 
 
 App\App::view('bottom');
