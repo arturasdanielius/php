@@ -12,12 +12,12 @@
                     <form action="{{route('m_store')}}" method="post">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Name</span>
-                        <input type="text" name="title" class="form-control" value="{{old('name')}}">
-                    </div
-                     <div class="input-group mb-3">
+                        <input type="text" name="name" class="form-control" value="{{old('name')}}">
+                    </div>
+                    <div class="input-group mb-3">
                         <span class="input-group-text">Surname</span>
-                        <input type="text" name="title" class="form-control" value="{{old('surname')}}">
-                    </div 
+                        <input type="text" name="surname" class="form-control" value="{{old('surname')}}">
+                    </div>
                     @csrf
                     <button type="submit" class="btn btn-secondary mt-4">Create</button>
                     </form>
@@ -27,4 +27,3 @@
     </div>
 </div>
 @endsection
-
