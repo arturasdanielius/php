@@ -1,7 +1,10 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Models\Mechanic;
 use Illuminate\Http\Request;
+
 class MechanicController extends Controller
 {
     /**
@@ -12,10 +15,12 @@ class MechanicController extends Controller
     public function index()
     {
         $mechanics = Mechanic::all();
+        
         return view('mechanic.index', [
             'mechanics' => $mechanics
         ]);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -25,6 +30,7 @@ class MechanicController extends Controller
     {
         return view('mechanic.create');
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -37,8 +43,9 @@ class MechanicController extends Controller
         $mechanic->name = $request->name;
         $mechanic->surname = $request->surname;
         $mechanic->save();
-        return redirect()->route('m_index');
+        return redirect()->route('m_index')->with('success_msg', 'Good job. We have new mechanic now.');
     }
+
     /**
      * Display the specified resource.
      *
@@ -75,8 +82,9 @@ class MechanicController extends Controller
         $mechanic->name = $request->name;
         $mechanic->surname = $request->surname;
         $mechanic->save();
-        return redirect()->route('m_index');
+        return redirect()->route('m_index')->with('success_msg', 'Good job. Mechanic was updated');
     }
+
     /**
      * Remove the specified resource from storage.
      *
