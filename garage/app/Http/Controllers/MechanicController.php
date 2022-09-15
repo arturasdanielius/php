@@ -1,10 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\Mechanic;
 use Illuminate\Http\Request;
-
 class MechanicController extends Controller
 {
     /**
@@ -15,12 +12,10 @@ class MechanicController extends Controller
     public function index()
     {
         $mechanics = Mechanic::all();
-
         return view('mechanic.index', [
             'mechanics' => $mechanics
         ]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -30,7 +25,6 @@ class MechanicController extends Controller
     {
         return view('mechanic.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -45,7 +39,6 @@ class MechanicController extends Controller
         $mechanic->save();
         return redirect()->route('m_index');
     }
-
     /**
      * Display the specified resource.
      *
@@ -58,7 +51,6 @@ class MechanicController extends Controller
             'mechanic' => $mechanic
         ]);
     }
-    
     /**
      * Show the form for editing the specified resource.
      *
@@ -71,7 +63,6 @@ class MechanicController extends Controller
             'mechanic' => $mechanic
         ]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -86,7 +77,6 @@ class MechanicController extends Controller
         $mechanic->save();
         return redirect()->route('m_index');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -95,8 +85,11 @@ class MechanicController extends Controller
      */
     public function destroy(Mechanic $mechanic)
     {
-        // Mes dar ateisim atgal
+        if ($mechanic->getTrucks()->count()) {
+            return redirect()->back()->with('info_msg', 'Oh no, you can not delete this one.');
+        }
         $mechanic->delete();
         return redirect()->route('m_index');
+
     }
 }
