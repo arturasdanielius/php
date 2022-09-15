@@ -14,8 +14,12 @@ class TruckController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        $trucks = Truck::all();
+
+        return view('truck.index', [
+            'trucks' => $trucks
+        ]);
     }
 
     /**
