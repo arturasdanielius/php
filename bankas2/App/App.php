@@ -16,7 +16,7 @@ class App {
         
         $url = $_SERVER['REQUEST_URI'];
         $url = explode('/', $url);
-        array_shift($url);      recs zsdcASecgc 
+        array_shift($url);
         $method = $_SERVER['REQUEST_METHOD'];
 
        

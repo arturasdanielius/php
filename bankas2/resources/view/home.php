@@ -2,7 +2,11 @@
 
 App\App::view('top', ['title' => $title]);
 
-// echo 'Taip mes cia';
+?>
+
+<h1> <?= $welcome ?> </h1>
+
+<?=
 
 
 App\App::view('bottom');
