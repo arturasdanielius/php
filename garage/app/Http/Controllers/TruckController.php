@@ -1,8 +1,11 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Models\Truck;
 use App\Models\Mechanic;
 use Illuminate\Http\Request;
+
 class TruckController extends Controller
 {
     /**
@@ -13,10 +16,12 @@ class TruckController extends Controller
     public function index()
     {
         $trucks = Truck::all();
+
         return view('truck.index', [
             'trucks' => $trucks
         ]);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,6 +34,7 @@ class TruckController extends Controller
             'mechanics' => $mechanics
         ]);
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -46,24 +52,24 @@ class TruckController extends Controller
             if ($request->file('photo')) {
 
                 $photo = $request->file('photo');
-
+    
                 $ext = $photo->getClientOriginalExtension();
-
+    
                 $name = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
-
+    
                 $file = $name. '-' . rand(100000, 999999). '.' . $ext;
-
+    
                 // $Image = Image::make($photo)->pixelate(12);
-
+    
                 // $Image->save(public_path().'/images/'.$file);
-
+    
                 $photo->move(public_path().'/trucks', $file);
-
+    
                 $truck->photo = asset('/trucks') . '/' . $file;
-
+    
             }
-
-
+    
+     
 
 
 
@@ -73,8 +79,10 @@ class TruckController extends Controller
         $truck->mechanic_notices = $request->mechanic_notices;
         $truck->mechanic_id = $request->mechanic_id;
         $truck->save();
+
         return redirect()->route('t_index');
     }
+
     /**
      * Display the specified resource.
      *
@@ -87,6 +95,7 @@ class TruckController extends Controller
             'truck' => $truck
         ]);
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -101,6 +110,7 @@ class TruckController extends Controller
             'truck' => $truck
         ]);
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -115,9 +125,33 @@ class TruckController extends Controller
         $truck->make_year = $request->make_year;
         $truck->mechanic_notices = $request->mechanic_notices;
         $truck->mechanic_id = $request->mechanic_id;
+
+        if ($request->delete_photo) {
+            unlink(public_path().'/trucks/' .pathinfo($truck->photo, PATHINFO_FILENAME).'.'.pathinfo($truck->photo, PATHINFO_EXTENSION));
+            $truck->photo = null;
+        }
+
+        if ($request->file('photo')) {
+            if ($truck->photo) {
+                unlink(public_path().'/trucks/' .pathinfo($truck->photo, PATHINFO_FILENAME).'.'.pathinfo($truck->photo, PATHINFO_EXTENSION));
+            }
+            $photo = $request->file('photo');
+            $ext = $photo->getClientOriginalExtension();
+            $name = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
+            $file = $name. '-' . rand(100000, 999999). '.' . $ext;
+            $photo->move(public_path().'/trucks', $file);
+            $truck->photo = asset('/trucks') . '/' . $file;
+        }
+
+
+
+
+
         $truck->save();
+
         return redirect()->route('t_index');
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -126,6 +160,9 @@ class TruckController extends Controller
      */
     public function destroy(Truck $truck)
     {
+        if ($truck->photo) {
+            unlink(public_path().'/trucks/' .pathinfo($truck->photo, PATHINFO_FILENAME).'.'.pathinfo($truck->photo, PATHINFO_EXTENSION));
+        }
         $truck->delete();
         return redirect()->route('t_index');
     }
