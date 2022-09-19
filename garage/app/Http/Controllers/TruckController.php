@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Truck;
 use App\Models\Mechanic;
 use Illuminate\Http\Request;
+use Image;
 
 class TruckController extends Controller
 {
