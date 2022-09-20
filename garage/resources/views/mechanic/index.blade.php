@@ -12,10 +12,10 @@
                             <div class="row">
                                 <div class="col-4">
                                     <select name="sort" class="form-select mt-1">
-                                        <option value="name_asc">Name AZ</option>
-                                        <option value="name_desc">Name ZA</option>
-                                        <option value="surname_asc">Surname AZ</option>
-                                        <option value="surname_desc">Surname ZA</option>
+                                        <option value="name_asc" @if('name_asc' == $sortSelect) selected @endif>Name AZ</option>
+                                        <option value="name_desc" @if('name_asc' == $sortSelect) selected @endif>Name ZA</option>
+                                        <option value="surname_asc" @if('surname_asc' == $sortSelect) selected @endif>Surname AZ</option>
+                                        <option value="surname_desc" @if('surname_asc' == $sortSelect) selected @endif>Surname ZA</option>
                                     </select>
                                 </div>
                                 <div class="col-4">
