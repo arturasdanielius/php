@@ -41,6 +41,8 @@ class Json implements DataBase {
         foreach ($this->data as &$user){
            if ($user['id'] == $userId){ 
                 $userData['id'] = $userId; //eilute nebutina - saugumo sumetimais
+                $user = $userData;
+                break;
            }  
         }
     }
