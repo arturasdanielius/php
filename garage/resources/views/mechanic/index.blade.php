@@ -52,6 +52,9 @@
                         @endforelse
                     </ul>
                 </div>
+                <div class="me-3 mx-3">
+                {{ $mechanics->links() }}
+                </div>
             </div>
         </div>
     </div>
