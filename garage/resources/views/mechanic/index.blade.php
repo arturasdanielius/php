@@ -8,9 +8,9 @@
                 <div class="card-header">
                     <h2>Mechanics</h2>
                     <form action="{{route('m_index')}}" method="get">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-6"> 
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-5">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-6">
@@ -27,11 +27,11 @@
                                             </div>
                                         </div>
                                     </div>
-                            </div>
-                            <div class="col-6">
+                                </div>
+                                <div class="col-7">
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div class="col-2">
                                                 <select name="sort" class="form-select mt-1">
                                                     <option value="5" @if('5'==$perPage) selected @endif>5</option>
                                                     <option value="10" @if('10'==$perPage) selected @endif>10</option>
@@ -40,15 +40,15 @@
                                                 </select>
                                             </div>
                                             <div class="col-6">
-                                                <button type="submit" class="btn btn-primary m-1">Result in page</button>
-                                                <a href="{{route('m_index')}}" class="btn btn-secondary m-1">Reset</a>
+                                                <button type="submit" class="btn btn-primary m-1">results in page</button>
+                                            <a href="{{route('m_index')}}" class="btn btn-secondary m-1">Reset</a>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                             </div>
-                            </form>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
