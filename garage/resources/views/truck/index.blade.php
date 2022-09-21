@@ -33,7 +33,7 @@
                                             <div class="col-8">
                                                 <div class="input-group mb-3">
                                                     <input type="text" name="s" class="form-control" value="{{$s}}">
-                                                <button type="submit" class="input-group-text">Search</button>
+                                                    <button type="submit" class="input-group-text">Search</button>
                                                 </div>
                                             </div>
                                             <div class="col-2">
@@ -81,8 +81,8 @@
                     </ul>
                 </div>
                 <div class="me-3 mx-3">
-                {{$trucks->links()}}
-                </div> 
+                    {{ $trucks->links() }}
+                </div>
             </div>
         </div>
     </div>
