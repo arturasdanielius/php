@@ -80,6 +80,9 @@
                         @endforelse
                     </ul>
                 </div>
+                <div class="me-3 mx-3">
+                {{$trucks->links()}}
+                </div> 
             </div>
         </div>
     </div>
