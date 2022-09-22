@@ -31,6 +31,14 @@ class BreakdownController extends Controller
         ]);
     }
 
+    public function list()
+    {
+        $breakdowns = Breakdown::orderBy('updated_at', 'desc')->get();
+        $html = view('breakdown.list')->with('breakdowns', $breakdowns)->render();
+        return response()->json([
+            'html' => $html
+        ]);
+    }
 
     /**
      * Store a newly created resource in storage.
