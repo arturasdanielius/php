@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Controllers\HomeController as H;
+use App\Controllers\UserController as U;
 
 class App {
 
@@ -23,11 +24,16 @@ class App {
 
         if($method == 'GET' && count($url) == 1 && $url[0] == ''){
 
-            return((new H)->home());
+            return((new H)->home());  
 
-           
         }
-    
+        
+        if($method == 'GET' && count($url) == 2 && $url[0] == 'user'&& $url[0] == 'create'){
+
+            return((new U)->create());  
+
+        }
+
     }
 
     static public function view($name, $data = [])
