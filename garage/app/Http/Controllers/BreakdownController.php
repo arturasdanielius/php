@@ -41,8 +41,21 @@ class BreakdownController extends Controller
     public function store(Request $request)
     {
         $breakdown = new Breakdown;
+        
+        $breakdown->truck_id = (int) $request->truck_id;
+        $breakdown->title = $request->title;
+        $breakdown->notes = $request->notes;
+        $breakdown->status = (int) $request->status;
+        $breakdown->price = (float) $request->price;
+        $breakdown->discount = (float) $request->discounts;
 
-        dump($request->all());
+        $breakdown->save;
+
+        return response()->json([
+            'msg' => 'All good',
+            'status' => 'OK'
+        ]);
+    
 
     }
 
