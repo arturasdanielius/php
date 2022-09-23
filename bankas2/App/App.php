@@ -24,13 +24,13 @@ class App {
 
         if ($method == 'GET' && count($url) == 1 && $url[0] == ''){
 
-            return((new H)->home());  
+            return((new H)->home());    
 
         }
         
         if ($method == 'GET' && count($url) == 2 && $url[0] == 'users' && $url[1] == 'create'){
 
-            return((new U)->create());  
+            return((new U)->create());
 
         }
 
