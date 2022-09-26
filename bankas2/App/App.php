@@ -29,9 +29,11 @@ class App {
         }
         
         if ($method == 'GET' && count($url) == 2 && $url[0] == 'users' && $url[1] == 'create'){
-
             return((new U)->create());
+        }
 
+        if ($method == 'POST' && count($url) == 2 && $url[0] == 'users' && $url[1] == 'store'){
+            return((new U)->store());
         }
 
     }

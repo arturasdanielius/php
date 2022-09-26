@@ -14,6 +14,15 @@ class UserController {
         ]); 
     }
 
-    
+    public function store()
+    {
+        Jason::connect()->create([
+            'vardas' => $_POST['vardas'],
+            'pavarde' => $_POST['pavarde'],
+            'ak' => $_POST['ak'],
+            'iban' => $_POST['iban'],
+            'likutis' => $_POST['likutis']
+        ]);
+    }
 
 }
