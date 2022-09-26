@@ -36,6 +36,32 @@
     }
 }
 
+.breakdowns-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .content {
+        display: flex;
+        h2 {
+            color: crimson;
+            margin: 0 5px;
+        }
+    }
+    .buttons {
+        display: flex;
+        align-items: center;
+        button,
+        a {
+            margin: 5px 10px;
+            display: block;
+        }
+        button {
+            transform: rotate(1deg);
+        }
+    }
+}
+
 .trucks-list {
     display: flex;
     justify-content: space-between;
@@ -119,7 +145,7 @@
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    h5{
+    h5 {
         margin: 10px;
         font-size: 40px;
         color: crimson;
@@ -158,5 +184,5 @@
 }
 
 textarea.form-control {
-    min-height: 50px;
+    min-height: 200px;
 }
