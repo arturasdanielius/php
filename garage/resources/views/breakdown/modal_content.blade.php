@@ -9,7 +9,7 @@
 
                 <h2>{{$breakdown->getTruck->getMechanic->name}} {{$breakdown->getTruck->getMechanic->surname}}</h2>
                 <h2>{{$breakdown->getTruck->plate}}</h2>
-
+                <input data-edit type="hidden" name="title" class="form-control" value="{{$breakdown->truck_id}}">
                 <div id="trucks-list"></div>
 
                 <div class="input-group mb-3">
