@@ -28,7 +28,7 @@ class App {
 
         }
         
-        if ($method == 'GET' && count($url) == 2 && $url[0] == 'users' && $url[1] == 'create'){
+        if ($method == 'get' && count($url) == 2 && $url[0] == 'users' && $url[1] == 'create'){
             return((new U)->create());
         }
 
@@ -44,5 +44,8 @@ class App {
         require DIR . 'resources/view/' . $name . '.php';
     }
    
-
+    static public function redirect()
+    {
+        header('Location: ' . URL . $where);
+    }
 }

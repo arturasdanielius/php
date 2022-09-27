@@ -23,6 +23,7 @@ class UserController {
             'iban' => $_POST['iban'],
             'likutis' => $_POST['likutis']
         ]);
+        return App::redirect('');
     }
 
 }
