@@ -32,7 +32,13 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/red-square', [S::class, 'redSquare']);
-Route::get('/red-square-blade', [S::class, 'redSquareBlade']);
+Route::post('/add-square', [S::class, 'addSquare']);
+Route::get('/get-square', [S::class, 'getSquares']);
+Route::delete('/reset-square', [S::class, 'resetSquares']);
 
+
+'/add-square';
+
+Route::get('/red-square-blade', [S::class, 'redSquareBlade']);
 
 require __DIR__.'/auth.php';
