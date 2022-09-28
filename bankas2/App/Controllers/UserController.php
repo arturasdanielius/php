@@ -16,7 +16,7 @@ class UserController {
 
     public function store()
     {
-        Jason::connect()->create([
+        Json::connect()->create([
             'vardas' => $_POST['vardas'],
             'pavarde' => $_POST['pavarde'],
             'ak' => $_POST['ak'],
