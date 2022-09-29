@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <h2>Categories</h2>
-                    <form action="{{route('m_index')}}" method="get">
+                    <form action="{{route('c_index')}}" method="get">
                         <div class="container">
                             <div class="row">
                                 <div class="col-5">
@@ -32,7 +32,7 @@
                                         <div class="row">
                                             <div class="col-3">
                                                 <select name="per_page" class="form-select mt-1">
-                                                 <option value="all" @if('all'==$perPage) selected @endif>All</option>
+                                                    <option value="all" @if('all'==$perPage) selected @endif>All</option>
                                                     <option value="5" @if('5'==$perPage) selected @endif>5</option>
                                                     <option value="10" @if('10'==$perPage) selected @endif>10</option>
                                                     <option value="20" @if('20'==$perPage) selected @endif>20</option>
@@ -41,7 +41,7 @@
                                             </div>
                                             <div class="col-6">
                                                 {{-- <button type="submit" class="btn btn-primary m-1">results in page</button> --}}
-                                                <a href="{{route('m_index')}}" class="btn btn-secondary m-1">Reset</a>
+                                                <a href="{{route('c_index')}}" class="btn btn-secondary m-1">Reset</a>
                                             </div>
                                         </div>
                                     </div>
@@ -52,18 +52,18 @@
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        @forelse($categories as $mechanic)
+                        @forelse($categories as $category)
                         <li class="list-group-item">
                             <div class="categories-list">
                                 <div class="content">
-                                    <h2>{{$mechanic->name}}</h2>
-                                    <h2>{{$mechanic->surname}}</h2>
-                                    <span>[{{$mechanic->getTrucks()->count()}}]</span>
+                                    <h2>{{$category->name}}</h2>
+                                    <h2>{{$category->surname}}</h2>
+                                    <span>[{{$category->getTrucks()->count()}}]</span>
                                 </div>
                                 <div class="buttons">
-                                    <a href="{{route('m_show', $mechanic)}}" class="btn btn-info">Show</a>
-                                    <a href="{{route('m_edit', $mechanic)}}" class="btn btn-success">Edit</a>
-                                    <form action="{{route('m_delete', $mechanic)}}" method="post">
+                                    <a href="{{route('c_show', $category)}}" class="btn btn-info">Show</a>
+                                    <a href="{{route('c_edit', $category)}}" class="btn btn-success">Edit</a>
+                                    <form action="{{route('c_delete', $category)}}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger">Delete</button>
