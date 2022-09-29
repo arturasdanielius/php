@@ -43,9 +43,10 @@ class Json implements DataBase {
     }
 
     public function __destruct()
-    {
+    {   
         file_put_contents(DIR . 'App/DB/data.json', json_encode($this->data)); 
     }
+    
     //implementacija is DataBase.php public function:
     public function create(array $userData) : void
     {

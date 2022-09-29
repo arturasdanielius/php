@@ -13,7 +13,6 @@ class HomeController {
        $welcome = 'Sveiki atvykę į LTU Banką';
 
        Json::connect();
-
        return App::view('home', ['title' => $title, 'welcome' => $welcome]); 
     }
 
