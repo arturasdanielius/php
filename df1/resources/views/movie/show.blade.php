@@ -6,25 +6,25 @@
         <div class="col-9">
             <div class="card">
                 <div class="card-header">
-                  <h2>Truck</h2>
+                    <h2>Movie</h2>
                 </div>
                 <div class="card-body">
-                    <div class="truck-show">
+                    <div class="movie-show">
                         <div class="line"><small>Plate:</small>
-                            <h5>{{$truck->plate}}</h5>
+                            <h5>{{$movie->plate}}</h5>
                         </div>
                         <div class="line"><small>Maker:</small>
-                            <h5>{{$truck->maker}}</h5>
+                            <h5>{{$movie->maker}}</h5>
                         </div>
                         <div class="line"><small>Mechanic:</small>
-                            <h5>{{$truck->getMechanic->name}} {{$truck->getMechanic->surname}}</h5>
+                            <h5>{{$movie->getMechanic->name}} {{$movie->getMechanic->surname}}</h5>
                         </div>
                         <p>
-                            {{$truck->mechanic_notices}}
+                            {{$movie->mechanic_notices}}
                         </p>
-                         @if($truck->photo)
+                        @if($movie->photo)
                         <div class="img">
-                            <img src="{{$truck->photo}}">
+                            <img src="{{$movie->photo}}">
                         </div>
                         @endif
                     </div>
