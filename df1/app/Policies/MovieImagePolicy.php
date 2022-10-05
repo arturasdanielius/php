@@ -1,85 +1,93 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Policies;
 
 use App\Models\MovieImage;
-use App\Http\Requests\StoreMovieImageRequest;
-use App\Http\Requests\UpdateMovieImageRequest;
+use App\Models\User;
+use Illuminate\Auth\Access\HandlesAuthorization;
 
-class MovieImageController extends Controller
+class MovieImagePolicy
 {
+    use HandlesAuthorization;
+
     /**
-     * Display a listing of the resource.
+     * Determine whether the user can view any models.
      *
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function index()
+    public function viewAny(User $user)
     {
         //
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Determine whether the user can view the model.
      *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreMovieImageRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreMovieImageRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
+     * @param  \App\Models\User  $user
      * @param  \App\Models\MovieImage  $movieImage
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function show(MovieImage $movieImage)
+    public function view(User $user, MovieImage $movieImage)
     {
         //
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Determine whether the user can create models.
      *
-     * @param  \App\Models\MovieImage  $movieImage
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function edit(MovieImage $movieImage)
+    public function create(User $user)
     {
         //
     }
 
     /**
-     * Update the specified resource in storage.
+     * Determine whether the user can update the model.
      *
-     * @param  \App\Http\Requests\UpdateMovieImageRequest  $request
+     * @param  \App\Models\User  $user
      * @param  \App\Models\MovieImage  $movieImage
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(UpdateMovieImageRequest $request, MovieImage $movieImage)
+    public function update(User $user, MovieImage $movieImage)
     {
         //
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Determine whether the user can delete the model.
      *
+     * @param  \App\Models\User  $user
      * @param  \App\Models\MovieImage  $movieImage
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function destroy(MovieImage $movieImage)
+    public function delete(User $user, MovieImage $movieImage)
+    {
+        //
+    }
+
+    /**
+     * Determine whether the user can restore the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\MovieImage  $movieImage
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function restore(User $user, MovieImage $movieImage)
+    {
+        //
+    }
+
+    /**
+     * Determine whether the user can permanently delete the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\MovieImage  $movieImage
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function forceDelete(User $user, MovieImage $movieImage)
     {
         //
     }
