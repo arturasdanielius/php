@@ -40,14 +40,13 @@ class HomeController extends Controller
             $movies->orderBy('price', 'desc');
         }
         
-        
-        
         return view('home.index', [
             'movies' => $movies->get(),
             'categories' => Category::orderBy('title')->get(),
             'cat' => $request->cat ?? '0',
             'sort' => $request->sort ?? '0',
-            'sortSelect' => Movie::SORT_SELECT
+            'sortSelect' => Movie::SORT_SELECT,
+            's' => $request->s ?? '',
         ]);
     }
 
