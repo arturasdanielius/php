@@ -6,7 +6,7 @@
         <div class="col-9">
             <div class="card">
                 <div class="card-header">
-                    <h2>Tag</h2>
+                    <h2>Categories</h2>
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
@@ -19,10 +19,10 @@
                                     </h2>
                                 </div>
                                 <div class="buttons">
-                                    <a href="{{route('c_show', $tag)}}" class="btn btn-info">Show</a>
+                                    <a href="{{route('t_show', $tag)}}" class="btn btn-info">Show</a>
                                     @if(Auth::user()->role >= 10)
-                                    <a href="{{route('c_edit', $tag)}}" class="btn btn-success">Edit</a>
-                                    <form action="{{route('c_delete', $tag)}}" method="post">
+                                    <a href="{{route('t_edit', $tag)}}" class="btn btn-success">Edit</a>
+                                    <form action="{{route('t_delete', $tag)}}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger">Delete</button>

@@ -28,7 +28,7 @@
                     </ul>
                     @if(Auth::user()->role >= 10)
                     <div class="buttons mt-2">
-                        <form action="{{route('c_delete_movies', $tag)}}" method="post">
+                        <form action="{{route('t_delete_movies', $tag)}}" method="post">
                             @csrf
                             @method('delete')
                             <button type="submit" class="btn btn-danger">Delete all movies</button>
