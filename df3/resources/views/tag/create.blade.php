@@ -6,7 +6,7 @@
         <div class="col-5">
             <div class="card">
                 <div class="card-header">
-                    <h2>New Category</h2>
+                    <h2>New Tag</h2>
                 </div>
                 <div class="card-body">
                     <form action="{{route('c_store')}}" method="post">
