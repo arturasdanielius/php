@@ -6,10 +6,10 @@
         <div class="col-5">
             <div class="card">
                 <div class="card-header">
-                    <h2>New Movie</h2>
+                    <h2>New Restauran</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('m_store')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('r_store')}}" method="post" enctype="multipart/form-data">
                         <div class="input-group mb-3">
                             <span class="input-group-text">Title</span>
                             <input type="text" name="title" class="form-control" value="{{old('title')}}">

@@ -52,14 +52,29 @@
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Movies
+                                Restaurants
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('m_index') }}">
+                                <a class="dropdown-item" href="{{ route('r_index') }}">
                                     List
                                 </a>
                                 @if(Auth::user()->role >= 10)
-                                <a class="dropdown-item" href="{{ route('m_create') }}">
+                                <a class="dropdown-item" href="{{ route('r_create') }}">
+                                    Add
+                                </a>
+                                @endif
+                            </div>
+                        </li>
+                         <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Dishes
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('d_index') }}">
+                                    List
+                                </a>
+                                @if(Auth::user()->role >= 10)
+                                <a class="dropdown-item" href="{{ route('d_create') }}">
                                     Add
                                 </a>
                                 @endif

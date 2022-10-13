@@ -6,7 +6,7 @@
         <div class="col-12 p-0 mb-2">
             <div class="card">
                 <div class="card-header">
-                    <h2>Movie</h2>
+                    <h2>Restaurant</h2>
                     <div class="container">
                         <div class="row">
                             <div class="col-7">
@@ -101,7 +101,7 @@
                     </div>
                 </li>
                 @empty
-                <li class="list-group-item">No movies found</li>
+                <li class="list-group-item">No Restaurant found</li>
                 @endforelse
             </ul>
         </div>
