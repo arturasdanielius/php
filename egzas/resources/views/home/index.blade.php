@@ -56,19 +56,19 @@
         </div>
         <div class="card-body">
             <ul class="list-group">
-                @forelse($movies as $movie)
+                @forelse($restorans as $restoran)
                 <li class="list-group-item">
                     <div class="movies-list">
                         <div class="content">
-                            <h2><span>Title: </span>{{$movie->title}}</h2>
-                            <h4><span>Price: </span>{{$movie->price}}</h4>
-                            @if($movie->getPhotos()->count())
+                            <h2><span>Title: </span>{{$restoran->title}}</h2>
+                            <h4><span>Town: </span>{{$restoran->town}}</h4>
+                            {{-- @if($movie->getPhotos()->count())
                             <h5><a href="{{$movie->lastImageUrl()}}" target="_BLANK">Photos: {{$movie->getPhotos()->count()}}</a></h5>
-                            @endif
-                            <h4><span>Rating: </span>{{$movie->rating ?? 'no rating'}}</h4>
+                            @endif --}}
+                            <h4><span>Rating: </span>{{$restoran->rating ?? 'no rating'}}</h4>
                         </div>
                         <div class="buttons">
-                            <form action="{{route('rate', $movie)}}" method="post">
+                            <form action="{{route('rate', $restoran)}}" method="post">
                                 <select name="rate">
                                     @foreach(range(1, 10) as $value)
                                     <option value="{{$value}}">{{$value}}</option>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="comments">
                         <ul class="list-group m-3">
-                            @forelse($movie->getComments as $comment)
+                            @forelse($restoran->getComments as $comment)
                             <li class="list-group-item">
                                 <div>{{$comment->post}}</div>
                             </li>
@@ -90,7 +90,7 @@
                             <li class="list-group-item">No comment.</li>
                             @endforelse
                         </ul>
-                        <form action="{{route('comment', $movie)}}" method="post">
+                        <form action="{{route('comment', $restoran)}}" method="post">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Comment</span>
                                 <textarea name="post" class="form-control"></textarea>
@@ -107,7 +107,7 @@
         </div>
     </div>
     <div class="me-3 mx-3 mt-3">
-        {{ $movies->links() }}
+        {{ $restorans->links() }}
     </div>
 </div>
 @endsection

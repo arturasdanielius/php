@@ -27,7 +27,7 @@ Route::get('/', [H::class, 'homeList'])->name('home')->middleware('gate:home');
 Route::put('/rate/{restoran}', [H::class, 'rate'])->name('rate')->middleware('gate:user');
 Route::post('/comment/{restoran}', [H::class, 'addComment'])->name('comment')->middleware('gate:user');
 
-Route::prefix('restoran')->name('r_')->group(function () {
+Route::prefix('restorans')->name('r_')->group(function () {
     Route::get('/', [R::class, 'index'])->name('index')->middleware('gate:user');
     Route::get('/create', [R::class, 'create'])->name('create')->middleware('gate:admin');
     Route::post('/create', [R::class, 'store'])->name('store')->middleware('gate:admin');
@@ -37,7 +37,7 @@ Route::prefix('restoran')->name('r_')->group(function () {
     Route::put('/edit/{restoran}', [R::class, 'update'])->name('update')->middleware('gate:admin');
 });
 
-Route::prefix('dish')->name('d_')->group(function () {
+Route::prefix('dishes')->name('d_')->group(function () {
     Route::get('/', [D::class, 'index'])->name('index')->middleware('gate:user');
     Route::get('/create', [D::class, 'create'])->name('create')->middleware('gate:admin');
     Route::post('/create', [D::class, 'store'])->name('store')->middleware('gate:admin');

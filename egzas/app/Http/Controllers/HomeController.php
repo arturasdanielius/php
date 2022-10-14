@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Models\Comment;
+use App\Models\Restoran;
+use App\Models\Dish;
 use Auth;
 
 class HomeController extends Controller
