@@ -15,7 +15,9 @@ class RestoranController extends Controller
      */
     public function index()
     {
-        //
+        return view('restoran.index', [
+            'restorans' => Restoran::orderBy('updated_at', 'desc')->paginate(5),
+           ]);
     }
 
     /**
@@ -36,7 +38,13 @@ class RestoranController extends Controller
      */
     public function store(StorerestoranRequest $request)
     {
-        //
+        Restoran::create([
+            'title' => $request->title,
+            'town' => $request->town,
+            'address' => $request->address,
+            'workTime' => $request->workTime,
+        ]);
+        return redirect()->route('r_index')->with('ok', 'All Good!');
     }
 
     /**
@@ -47,7 +55,9 @@ class RestoranController extends Controller
      */
     public function show(restoran $restoran)
     {
-        //
+        return view('restoran.show', [
+            'restoran' => $restoran,
+        ]);
     }
 
     /**
@@ -58,7 +68,9 @@ class RestoranController extends Controller
      */
     public function edit(restoran $restoran)
     {
-        //
+        return view('restoran.edit', [
+            'restoran' => $restoran,
+        ]);
     }
 
     /**
@@ -70,7 +82,17 @@ class RestoranController extends Controller
      */
     public function update(UpdaterestoranRequest $request, restoran $restoran)
     {
-        //
+        $restoran->update([
+            'title' => $request->title,
+            'town' => $request->town,
+            'address' => $request->address,
+            'workTime' => $request->workTime,
+        ]);
+        // $restoran
+        // ->removeImages($request->delete_photo)
+        // ->addImages($request->file('photo'));
+
+        return redirect()->route('r_index')->with('ok', 'All Good!');
     }
 
     /**
