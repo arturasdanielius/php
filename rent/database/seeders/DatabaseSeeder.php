@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,11 +17,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        DB::table('users')->insert([
+            'name' => 'Bebras',
+            'email' => 'Bebras@gmail.com',
+            'password' => Hash::make('123'),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Briedis',
+            'email' => 'briedis@gmail.com',
+            'password' => Hash::make('123'),
+        ]);
+        $time = Carbon::now();
+        foreach(['Drama', 'Horror', 'Comedy', 'Boring', 'Action'] as $cat) {
+            DB::table('categories')->insert([
+                'title' => $cat,
+                'created_at' => $time->addSeconds(1),
+                'updated_at' => $time
+            ]);
+        }
     }
 }
