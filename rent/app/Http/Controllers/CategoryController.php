@@ -35,7 +35,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Category::create([
+            'title' => $request->title
+        ]);
+
+        return redirect()->back(); 
+
     }
 
     /**
